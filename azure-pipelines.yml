@@ -95,13 +95,13 @@ steps:
 
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
- condition: |
-      and
-      (
-        succeeded(),
-        eq(variables['Build.Reason'], 'PullRequest'),
-        eq(variables['System.PullRequest.TargetBranch'], 'master')
-      )
+  condition: |
+        and
+        (
+          succeeded(),
+          eq(variables['Build.Reason'], 'PullRequest'),
+          eq(variables['System.PullRequest.TargetBranch'], 'master')
+        )
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
